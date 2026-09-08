@@ -1,0 +1,96 @@
+.navbarcolor {
+    background-color: #ffc2d1;
+}
+
+.brand-sub {
+    font-size: 0.7em;
+    letter-spacing: 1px;
+}
+
+.search-pill {
+    display: flex;
+    align-items: center;
+    max-width: 480px;
+    background: var(--color-bg-input);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 4px 4px 4px 18px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.search-pill-field {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: var(--color-text);
+    padding: 6px 8px;
+    min-width: 0;
+}
+
+.search-pill-field::placeholder {
+    color: var(--color-muted);
+}
+
+.search-pill-select {
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.search-pill-divider {
+    width: 1px;
+    height: 22px;
+    background: var(--color-border);
+    flex: 0 0 auto;
+}
+
+.search-pill-btn {
+    flex: 0 0 auto;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: #fb6f92;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.search-pill-btn:hover {
+    background: #e85179;
+}
+
+
+/* ---------- Navbar ---------- */
+
+nav.navbar {
+    border-bottom: 1px solid var(--color-border);
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background-color: var(--color-bg-page);
+}
+
+.navbar-brand,
+.brand-name,
+.brand-sub,
+.navbar .nav-link {
+    color: #000000 !important;
+}
+
+.navbar-brand:hover,
+.navbar-brand:hover .brand-name,
+.navbar-brand:hover .brand-sub {
+    color: #e85179 !important;
+}
+
+.navbar .nav-link:hover {
+    background-color: rgba(251, 111, 146, 0.12);
+}
+
+.navbar .nav-link.active {
+    background-color: rgba(251, 111, 146, 0.12);
+}
