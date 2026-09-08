@@ -1,0 +1,36 @@
+.step-circle {
+    width: 36px;
+    height: 36px;
+    background: #fb6f92;
+    color: #fff;
+    font-family: var(--fuente-titulo);
+    font-size: 12px;
+}
+
+.badge-tipo {
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    background: #ffc2d1;
+    font-size: 11px;
+}
+
+.property-carousel-img {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.btn-style-1 {
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    background-size: 300% 100%;
+    background-image: linear-gradient( to right, #fb6f92, #ffb3c6, #fb6f92);
+    transition: all .4s ease-in-out;
+}
+
+.btn-style-1:hover {
+    background-position: 100% 0;
+    color: #fff;
+}
