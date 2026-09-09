@@ -20,12 +20,12 @@ function PropertyDetail() {
   return (
     <div className="container py-4">
       <div className="mb-3">
-        <span className="badge-tipo mb-2">{TIPO_LABELS[propiedad.tipo]}</span>
-        <h1 className="h4 mb-1">{propiedad.titulo}</h1>
+        <span className="badge-tipo mb-2">{TIPO_LABELS[propiedad.category]}</span>
+        <h1 className="h4 mb-1">{propiedad.name}</h1>
         <p className="text-muted mb-0">{propiedad.comuna}</p>
       </div>
 
-      <PhotoGallery imagenes={propiedad.imagenes} titulo={propiedad.titulo} ubicacion={propiedad.ubicacion} />
+      <PhotoGallery imagenes={propiedad.imagenes} name ={propiedad.name} ubicacion={propiedad.ubicacion} />
 
       <div className="row mt-4 g-4">
         <div className="col-lg-8">

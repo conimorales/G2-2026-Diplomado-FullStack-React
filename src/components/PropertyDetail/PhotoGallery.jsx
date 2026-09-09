@@ -2,7 +2,7 @@ import { useState } from 'react'
 import MiniMap from './MiniMap'
 import AllPhotosModal from './AllPhotosModal'
 
-function PhotoGallery({ imagenes, titulo, ubicacion }) {
+function PhotoGallery({ imagenes, name, ubicacion }) {
   const [showModal, setShowModal] = useState(false)
 
   if (!imagenes || imagenes.length === 0) {
@@ -24,10 +24,10 @@ function PhotoGallery({ imagenes, titulo, ubicacion }) {
       <div className={`gallery-grid gallery-grid--${totalCeldas}`}>
         {visibles.map((src, idx) => (
           <div className="gallery-cell" key={src}>
-            <img src={src} alt={`${titulo} - foto ${idx + 1}`} />
+            <img src={src} alt={`${name} - foto ${idx + 1}`} />
           </div>
         ))}
-        {conMapa && <MiniMap ubicacion={ubicacion} titulo={titulo} />}
+        {conMapa && <MiniMap ubicacion={ubicacion} name={name} />}
       </div>
 
       {restantes > 0 && (
@@ -41,7 +41,7 @@ function PhotoGallery({ imagenes, titulo, ubicacion }) {
       )}
 
       {showModal && (
-        <AllPhotosModal imagenes={imagenes} titulo={titulo} onClose={() => setShowModal(false)} />
+        <AllPhotosModal imagenes={imagenes} name={name} onClose={() => setShowModal(false)} />
       )}
     </>
   )

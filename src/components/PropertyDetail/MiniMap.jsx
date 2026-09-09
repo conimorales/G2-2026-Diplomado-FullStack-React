@@ -12,7 +12,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 })
 
-function MiniMap({ ubicacion, titulo }) {
+function MiniMap({ ubicacion, name }) {
   return (
     <div className="gallery-map-cell">
       <MapContainer
@@ -26,7 +26,7 @@ function MiniMap({ ubicacion, titulo }) {
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={[ubicacion.lat, ubicacion.lng]}>
-          <Popup>{titulo}</Popup>
+          <Popup>{name}</Popup>
         </Marker>
       </MapContainer>
       <span className="gallery-map-label">Mapa Referencial</span>

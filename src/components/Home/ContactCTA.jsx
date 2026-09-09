@@ -1,3 +1,5 @@
+import Button from '../Button/Button'
+
 function ContactCTA() {
   return (
     <section className="py-4" id="contacto">
@@ -8,9 +10,13 @@ function ContactCTA() {
             Arrendamos directamente contigo, sin corredores de por medio. Escríbenos.
           </p>
         </div>
-        <a href="https://wa.me/56900000000" className="btn btn-style-1">
+        <Button
+          variant="outline-primary"
+          className="btn-sm btn-style-1"
+          onClick={() => window.open('https://wa.me/56900000000')}
+        >
           Contactar por WhatsApp
-        </a>
+        </Button>
       </div>
     </section>
   )

@@ -2,8 +2,8 @@ export const PROPIEDADES = [{
     id: 1,
     region: 'rm',
     comuna: 'Santiago Centro',
-    tipo: 'departamento',
-    titulo: 'Departamento de 2 dormitorios y 2 baños',
+    category: 'departamento',
+    name: 'Departamento de 2 dormitorios y 2 baños',
     precio: '$420.000',
     descripcion: 'Amplio departamento de más de 70 m², ubicado en Santiago Centro, cercano a Av. Pdte. Balmaceda con San Martín. A pocos minutos de las estaciones de metro Cal y Canto y Santa Ana, con excelente conectividad.',
     caracteristicas: [
@@ -45,8 +45,8 @@ export const PROPIEDADES = [{
     id: 2,
     region: 'villarrica',
     comuna: 'Villarrica',
-    tipo: 'habitacion',
-    titulo: 'Pieza amoblada en Calle Colo Colo',
+    category: 'habitacion',
+    name: 'Pieza amoblada en Calle Colo Colo',
     precio: '$195.000',
     descripcion: 'Ubicada en Calle Colo Colo, cercana al centro de Villarrica. Pieza amoblada, contiene cama, baño privado y cocina.',
     caracteristicas: [
