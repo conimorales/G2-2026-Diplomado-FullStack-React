@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-function BrandLogo() {
+function HeaderLogo() {
   return (
     <NavLink className="navbar-brand d-flex align-items-center gap-2" to="/">
       <i className="fa-solid fa-house"></i>
@@ -12,4 +12,4 @@ function BrandLogo() {
   )
 }
 
-export default BrandLogo
+export default HeaderLogo

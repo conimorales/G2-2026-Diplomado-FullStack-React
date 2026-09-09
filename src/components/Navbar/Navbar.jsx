@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import BrandLogo from './BrandLogo'
+import HeaderLogo from './HeaderLogo'
 import SearchBar from './SearchBar'
 import NavLinks from './NavLinks'
 import ThemeToggle from './ThemeToggle'
@@ -24,7 +24,7 @@ function Navbar() {
   return (
     <nav className={navbarClasses}>
       <div className="container-fluid navbarcolor">
-        <BrandLogo />
+        <HeaderLogo />
 
         <button
           className="navbar-toggler"

@@ -14,7 +14,7 @@ function PropertyCarousel({ propiedad }) {
       <div className="carousel-inner">
         {propiedad.imagenes.map((src, idx) => (
           <div key={src} className={`carousel-item${idx === 0 ? ' active' : ''}`}>
-            <img src={src} className="d-block w-100 property-carousel-img" alt={`${propiedad.titulo} - foto ${idx + 1}`} />
+            <img src={src} className="d-block w-100 property-carousel-img" alt={`${propiedad.name} - foto ${idx + 1}`} />
           </div>
         ))}
       </div>
