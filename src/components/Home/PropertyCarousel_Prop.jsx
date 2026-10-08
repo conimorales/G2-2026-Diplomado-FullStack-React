@@ -1,8 +1,7 @@
-function PropertyCarousel({ producto }) {
-  const carouselId = `carousel-${producto.id}`
-  const imagenes = producto.images?.length ? producto.images : [producto.thumbnail].filter(Boolean)
+function PropertyCarousel({ propiedad }) {
+  const carouselId = `carousel-${propiedad.id}`
 
-  if (imagenes.length === 0) {
+  if (!propiedad.imagenes || propiedad.imagenes.length === 0) {
     return (
       <div className="property-img-placeholder">
         <i className="fa-solid fa-image"></i>
@@ -11,21 +10,16 @@ function PropertyCarousel({ producto }) {
   }
 
   return (
-    <div id={carouselId} className="carousel slide property-carousel">
+    <div id={carouselId} className="carousel slide property-carousel" data-bs-ride="carousel">
       <div className="carousel-inner">
-        {imagenes.map((src, idx) => (
+        {propiedad.imagenes.map((src, idx) => (
           <div key={src} className={`carousel-item${idx === 0 ? ' active' : ''}`}>
-            <img
-              src={src}
-              className="d-block w-100 property-carousel-img"
-              alt={`${producto.title} - foto ${idx + 1}`}
-              loading="lazy"
-            />
+            <img src={src} className="d-block w-100 property-carousel-img" alt={`${propiedad.name} - foto ${idx + 1}`} />
           </div>
         ))}
       </div>
 
-      {imagenes.length > 1 && (
+      {propiedad.imagenes.length > 1 && (
         <>
           <button className="carousel-control-prev" type="button" data-bs-target={`#${carouselId}`} data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -14,9 +14,9 @@ function NavLinks() {
       <li className="nav-item navbar-li">
         <NavLink
           className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-          to="/propiedades"
+          to="/products"
         >
-          <i className="fa-solid fa-building"></i> Propiedades
+          <i className="fa-solid fa-building"></i> Productos
         </NavLink>
       </li>
       <li className="nav-item navbar-li">

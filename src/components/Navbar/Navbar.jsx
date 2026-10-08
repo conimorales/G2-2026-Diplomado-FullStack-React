@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { NavLink } from 'react-router-dom'
 import HeaderLogo from './HeaderLogo'
 import SearchBar from './SearchBar'
-import NavLinks from './NavLinks'
 import ThemeToggle from './ThemeToggle'
+import MenuDrawer from './MenuDrawer'
 import './Navbar.css'
 
 function Navbar() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
+  const [menuAbierto, setMenuAbierto] = useState(false)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -17,34 +19,39 @@ function Navbar() {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
   }
 
-  const navbarClasses = theme === 'dark'
-    ? 'navbar navbar-expand-lg navbar-dark bg-dark'
-    : 'navbar navbar-expand-lg navbar-light bg-light'
+  // useCallback: la función no cambia entre renders, así el efecto del menú no se reinicia
+  const cerrarMenu = useCallback(() => setMenuAbierto(false), [])
 
   return (
-    <nav className={navbarClasses}>
-      <div className="container-fluid navbarcolor">
-        <HeaderLogo />
+    <>
+      <header className="site-header">
+        <div className="container-fluid header-row">
+          <HeaderLogo />
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          <button
+            type="button"
+            className="menu-btn"
+            onClick={() => setMenuAbierto(true)}
+            aria-expanded={menuAbierto}
+          >
+            <i className="fa-solid fa-bars"></i>
+            <span>Menú</span>
+          </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <SearchBar />
-          <NavLinks />
-          <ThemeToggle theme={theme} onToggle={toggleTheme} />
+
+          <div className="header-acciones">
+            <NavLink to="/contacto" className="header-icono">
+              <i className="fa-solid fa-headset"></i>
+              <span>Contacto</span>
+            </NavLink>
+            <ThemeToggle theme={theme} onToggle={toggleTheme} />
+          </div>
         </div>
-      </div>
-    </nav>
+      </header>
+
+      <MenuDrawer abierto={menuAbierto} onCerrar={cerrarMenu} />
+    </>
   )
 }
 

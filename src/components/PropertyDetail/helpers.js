@@ -1,18 +1,30 @@
-export const TIPO_LABELS = {
-    casa: 'Casa',
-    departamento: 'Departamento',
-    habitacion: 'Habitación',
+// Arma la lista "Lo que este producto ofrece" desde los campos de la API
+export function armarCaracteristicas(p) {
+    const lista = []
+
+    if (p.brand) lista.push({ icono: 'fa-tag', texto: `Marca ${p.brand}` })
+    lista.push({ icono: 'fa-star', texto: `Valoración ${p.rating.toFixed(1)} de 5` })
+    lista.push({
+        icono: p.stock > 0 ? 'fa-boxes-stacked' : 'fa-ban',
+        texto: p.stock > 0 ? `${p.stock} unidades en stock` : 'Sin stock',
+    })
+    if (p.dimensions) {
+        const { width, height, depth } = p.dimensions
+        lista.push({ icono: 'fa-ruler-combined', texto: `${width} × ${height} × ${depth} cm` })
+    }
+    if (p.weight) lista.push({ icono: 'fa-weight-hanging', texto: `Peso ${p.weight} kg` })
+    if (p.minimumOrderQuantity > 1) {
+        lista.push({ icono: 'fa-cart-shopping', texto: `Compra mínima de ${p.minimumOrderQuantity} unidades` })
+    }
+
+    return lista
 }
 
-export function getFeatureIcon(texto) {
-    const t = texto.toLowerCase()
-    if (t.includes('dormitorio')) return 'fa-bed'
-    if (t.includes('baño')) return 'fa-bath'
-    if (t.includes('cocina')) return 'fa-kitchen-set'
-    if (t.includes('m²') || t.includes('m2')) return 'fa-ruler-combined'
-    if (t.includes('gasto común') || t.includes('gasto comun')) return 'fa-file-invoice-dollar'
-    if (t.includes('ubicación') || t.includes('ubicacion') || t.includes('conectividad')) return 'fa-location-dot'
-    if (t.includes('no cuenta con estacionamiento')) return 'fa-ban'
-    if (t.includes('estacionamiento')) return 'fa-square-parking'
-    return 'fa-circle-check'
+// Equivalente a tus "condiciones": envío, garantía y devolución
+export function armarCondiciones(p) {
+    return [
+        p.shippingInformation && { titulo: 'Envío', texto: p.shippingInformation },
+        p.warrantyInformation && { titulo: 'Garantía', texto: p.warrantyInformation },
+        p.returnPolicy && { titulo: 'Devoluciones', texto: p.returnPolicy },
+    ].filter(Boolean)
 }
